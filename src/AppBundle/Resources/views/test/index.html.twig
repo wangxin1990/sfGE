@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>考试列表</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>序号 </th>
+                <th>&nbsp;考试名称 </th>
+                <th>&nbsp;考试描述 </th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('test_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.testName }}</td>
+                <td>{{ entity.summary }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('test_show', { 'id': entity.id }) }}">查看</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('test_edit', { 'id': entity.id }) }}">编辑</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('test_new') }}">
+                创建考试
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

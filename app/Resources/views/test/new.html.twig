@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>新建考试</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('test') }}">
+            返回考试列表
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>编辑</h1>
+
+    {{ form(edit_form) }}
+
+	    <ul class="record_actions">
+	<li>{{ form(delete_form) }}</li>
+	<li>
+	    <a href="{{ path('test') }}">
+	        返回考试列表
+	    </a>
+	</li>
+</ul>
+{% endblock %}
