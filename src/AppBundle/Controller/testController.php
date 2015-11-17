@@ -25,16 +25,19 @@ class testController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AppBundle:test')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
+   public function indexAction(Request $request)
+{
+    $em = $this->getDoctrine()->getManager();
+ 
+    $qb = $em->getRepository('AppBundle:test')->createQueryBuilder('n');
+ 
+    $paginator = $this->get('knp_paginator');
+    $pagination = $paginator->paginate($qb, $request->query->getInt('page', 1));
+ 
+    return $this->render('test/index.html.twig', [
+        'pagination' => $pagination,
+    ]);
+}
     /**
      * Creates a new test entity.
      *
