@@ -11,18 +11,10 @@ class Builder extends ContainerAware
     {
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
- 
-        $menu->addChild('home', [
-            'route' => 'home',
-            'label' => '主页',
-        ]); 
-
- 
         $menu->addChild('test', [
             'route' => 'test',
             'label' => '考试列表'
         ]);
- 
         return $menu;
     }
 }

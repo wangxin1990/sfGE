@@ -3,7 +3,7 @@
 {% block body %}
     <div class="row">
         <div class="col-sm-8">
-            <p><a class="btn btn-primary" href="{{ path('test_new') }}">+ 发表新闻</a></p>
+            <p><a class="btn btn-primary" href="{{ path('test_new') }}">+新建考试</a></p>
             {% for entity in pagination %}
                 <section>
                     <header><h2><a href="{{ path('test_show', { 'id': entity.id }) }}">{{ entity.testName }}</a></h2></header>
